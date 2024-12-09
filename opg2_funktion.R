@@ -3,13 +3,21 @@ library(rvest)
 library(dplyr)
 library(DBI)
 library(RMariaDB)
+#install.packages("logr")
+library(logr)
+
+# logfil
+
+path <- "/Users/Helenejensen/Documents/Dataanalyse/OLA_5"
+log_open(path, file_name = "test.log")
+log_print("starting")
 
 # Opret forbindelse til databasen
 con <- dbConnect(MariaDB(),
-                 db = "airobs",
-                 host = "51.20.31.129",
+                 db = "airdb",
+                 host = "13.60.21.240",
                  port = 3306,
-                 user = "root",
+                 user = "dalremote",
                  password = "Alfred1403")
 
 # Definer funktion til at hente data fra en side
@@ -85,3 +93,5 @@ tables <- lapply(sites, function(site) {
 # Udskriv tabellerne
 names(tables) <- c("HC Andersen Boulevard", "Risø", "Anholt", "Århus Banegårdsgade")
 print(tables)
+
+log_close()
