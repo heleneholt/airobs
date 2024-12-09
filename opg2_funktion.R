@@ -94,4 +94,14 @@ tables <- lapply(sites, function(site) {
 names(tables) <- c("HC Andersen Boulevard", "Risø", "Anholt", "Århus Banegårdsgade")
 print(tables)
 
+# SQL
+
+dbWriteTable(con, "HCAB_data", table_København, append = TRUE, row.names = FALSE)
+#result <- dbGetQuery(con, "SELECT * FROM HCAB_data LIMIT 10")
+#print(result)
+
+dbWriteTable(con, "RISOE_data", table_Risoe, append = TRUE, row.names = FALSE)
+dbWriteTable(con, "ANHO_data", table_Anholt, append = TRUE, row.names = FALSE)
+dbWriteTable(con, "AARH3_data", table_Aarhus, append = TRUE, row.names = FALSE)
+
 log_close()
