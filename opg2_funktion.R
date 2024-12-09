@@ -6,10 +6,10 @@ library(RMariaDB)
 
 # Opret forbindelse til databasen
 con <- dbConnect(MariaDB(),
-                 db = "airflow",
-                 host = "13.60.21.240",
+                 db = "airobs",
+                 host = "51.20.31.129",
                  port = 3306,
-                 user = "dalremote",
+                 user = "root",
                  password = "Alfred1403")
 
 # Definer funktion til at hente data fra en side
